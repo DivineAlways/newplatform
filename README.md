@@ -1,4 +1,4 @@
-# BrowserBase x Next.js Quickstart
+# Browserbase x Next.js Quickstart
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
