@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+In addition, we use [BrowserBase](https://browserbase.com) to scrape and summarize the web pages for chat responses.
+
 ## Getting Started
 
 First, run the development server:
@@ -28,6 +30,12 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+To learn more about BrowserBase, take a look at the following resources:
+
+- [BrowserBase Documentation](https://docs.browserbase.com/introduction) - learn about BrowserBase features and API.
+- [BrowserBase Playground](https://www.browserbase.com/playground) - try out BrowserBase features.
+- [Browserbase Support](mailto:support@browserbase.com) - for any questions or concerns.
 
 ## Deploy on Vercel
 
