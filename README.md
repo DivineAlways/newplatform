@@ -2,7 +2,6 @@
 
 ![BrowserBase x Next.js](./app/readme-cover.png)
 
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 In addition, we use [BrowserBase](https://browserbase.com) to scrape and summarize the web pages for chat responses.

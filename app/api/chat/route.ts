@@ -33,21 +33,20 @@ async function getPageInfo(message: string) {
   const content = await page.content();
   // Parse the content into a readable format
   const dom = new JSDOM(content);
+
   // Use the Readability library to extract the article content
   const article = new Readability(dom.window.document).parse();
+  
   await browser.close();
 
-  const response = await generateText({
-    model: anthropic("claude-3-5-sonnet-20240620"),
-    prompt: `Summarize this information: ${article?.textContent || ''}`,
-  });
-  return response.text;
+  // Return the article content
+  return article?.textContent || '';
 }
 
 // GET request to generate a response based on userMessage
 export async function GET(request: Request) {
 
-  const userMessage = "Tell me about Kanye West";
+  const userMessage = "What is the weather in San Francisco?";
 
   const info = await getPageInfo(userMessage);
   const response = await generateText({
