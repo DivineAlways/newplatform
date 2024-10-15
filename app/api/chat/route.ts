@@ -6,10 +6,11 @@ import { Readability } from '@mozilla/readability';
 
 // Simplified session creation
 async function createSession() {
+  const bb_api_key = process.env.BROWSERBASE_API_KEY!
   const response = await fetch(`https://www.browserbase.com/v1/sessions`, {
     method: "POST",
     headers: {
-      "x-bb-api-key": process.env.BROWSERBASE_API_KEY as string,
+      "x-bb-api-key": bb_api_key,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ projectId: process.env.BROWSERBASE_PROJECT_ID }),
