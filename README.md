@@ -27,7 +27,7 @@ pnpm dev
 bun dev
 ```
 
-4. Open [http://localhost:3000/api/chat](http://localhost:3000/api/chat) with your browser to call the API.
+4. Open [http://localhost:3000/api/chat](http://localhost:3000/api/chat) with your browser to call the API endpoint.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
