@@ -8,7 +8,14 @@ In addition, we use [BrowserBase](https://browserbase.com) to scrape and summari
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+
+2. Create a `.env` file with the following variables:
+    - `BROWSERBASE_API_KEY`
+    - `BROWSERBASE_PROJECT_ID`
+    - `ANTHROPIC_API_KEY`
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -20,7 +27,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000/api/chat](http://localhost:3000/api/chat) with your browser to call the API.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
