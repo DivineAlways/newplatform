@@ -24,9 +24,10 @@ async function createSession() {
 
     const { id } = await response.json();
     return id;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error creating session:", error);
-    throw new Error(`Failed to create session: ${error.message}`);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    throw new Error(`Failed to create session: ${errorMessage}`);
   }
 }
 
@@ -41,9 +42,10 @@ async function summarizeText(text: string, maxChars: number = 10000) {
             ]),
         });
         return response.text;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error summarizing text:", error);
-        throw new Error(`Failed to summarize text: ${error.message}`);
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+        throw new Error(`Failed to summarize text: ${errorMessage}`);
     }
 }
 
@@ -83,9 +85,10 @@ async function getPageInfo(message: string, summarize: boolean = false, maxChars
     }
 
     return textContent;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error getting page info:", error);
-    throw new Error(`Failed to get page info: ${error.message}`);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    throw new Error(`Failed to get page info: ${errorMessage}`);
   }
 }
 
