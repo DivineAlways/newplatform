@@ -17,6 +17,7 @@ export default function BaseEndpointForm({ endpoint, title, description, extraFi
 
   return (
     <div className="w-full">
+      <label>n.</label>
       <h2 className="text-2xl font-bold mb-2">{title}</h2>
       <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
       <form onSubmit={handleSubmit} className="space-y-4">
