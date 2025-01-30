@@ -1,10 +1,9 @@
 import { anthropic } from '@ai-sdk/anthropic';
 import { convertToCoreMessages, generateText } from 'ai';
-import { getPageInfo } from '@/app/lib/browserbase';
 
 export async function POST(request: Request) {
     try {
-        const { userMessage, outputFormat, summarize } = await request.json();
+        const { userMessage } = await request.json();
 
         if (!userMessage) {
             return new Response(JSON.stringify({ error: "userMessage is required" }), {
@@ -13,27 +12,15 @@ export async function POST(request: Request) {
             });
         }
 
-        const info = await getPageInfo(userMessage, summarize);
-
-        let responseContent;
-
-        if (outputFormat === 'json') {
-            responseContent = JSON.stringify({ content: info });
-        } else if (outputFormat === 'markdown') {
-            responseContent = `\`\`\`\n${info}\n\`\`\``;
-        } else {
-            responseContent = info;
-        }
-
         const aiResponse = await generateText({
             model: anthropic("claude-3-5-sonnet-20240620"),
             messages: convertToCoreMessages([
                 { role: "system", content: "You are a helpful assistant for software testing and quality assurance." },
-                { role: "user", content: `Info: ${info}\n\nQuestion: ${userMessage}` }
+                { role: "user", content: userMessage }
             ]),
         });
 
-        return new Response(JSON.stringify({ content: aiResponse.text, extractedContent: responseContent }), {
+        return new Response(JSON.stringify({ content: aiResponse.text }), {
             status: 200,
             headers: { 'Content-Type': 'application/json' },
         });
