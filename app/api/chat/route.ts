@@ -47,7 +47,7 @@ async function getPageInfo(message: string) {
 // GET request to generate a response based on userMessage
 export async function GET(request: Request) {
 
-  const userMessage = "What is the weather in San Francisco?";
+  const userMessage = "What is the weather in Atlanta Ga today?";
 
   const info = await getPageInfo(userMessage);
   const response = await generateText({
