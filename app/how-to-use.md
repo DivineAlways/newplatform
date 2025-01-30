@@ -2,7 +2,11 @@
 
 This documentation explains how to use BrowserBase's AI-powered tools and endpoints.
 
+---
+
 ## Core Components
+
+---
 
 ### Base Components
 

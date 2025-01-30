@@ -16,9 +16,20 @@ export default function HowToUsePage() {
   )
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-8 max-w-5xl mx-auto">
-      <div className="prose prose-invert w-full">
-        <Markdown>{markdownContent}</Markdown>
+    <main className="flex min-h-screen flex-col items-center py-12 px-4 sm:px-8">
+      <div className="prose prose-invert prose-lg w-full max-w-4xl mx-auto">
+        <div className="bg-gray-900 rounded-lg p-8 shadow-xl">
+          <Markdown 
+            className="prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl 
+                       prose-headings:text-gray-100 prose-headings:font-bold prose-headings:mb-6 
+                       prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
+                       prose-ul:text-gray-300 prose-li:my-2
+                       prose-code:text-blue-300 prose-code:bg-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded
+                       prose-pre:bg-gray-800 prose-pre:p-4 prose-pre:rounded-lg"
+          >
+            {markdownContent}
+          </Markdown>
+        </div>
       </div>
     </main>
   )
