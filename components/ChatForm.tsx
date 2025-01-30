@@ -51,14 +51,14 @@ export default function ChatForm() {
     <div className="max-w-4xl mx-auto p-4 space-y-6">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2">
+          <label htmlFor="message" className="block text-sm font-medium mb-2 text-black dark:text-white">
             Enter your message
           </label>
           <textarea
             id="message"
             value={userMessage}
             onChange={(e) => setUserMessage(e.target.value)}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
             rows={4}
             required
           />
@@ -72,13 +72,13 @@ export default function ChatForm() {
               onChange={(e) => setSummarize(e.target.checked)}
               className="rounded"
             />
-            <span className="text-sm">Summarize content</span>
+            <span className="text-sm text-black dark:text-white">Summarize content</span>
           </label>
 
           <select
             value={outputFormat}
             onChange={(e) => setOutputFormat(e.target.value as 'text' | 'markdown' | 'json')}
-            className="p-2 border rounded-md"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
           >
             <option value="text">Text</option>
             <option value="markdown">Markdown</option>
