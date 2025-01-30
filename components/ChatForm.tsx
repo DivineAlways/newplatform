@@ -103,14 +103,14 @@ export default function ChatForm() {
 
       {response && (
         <div className="space-y-4">
-          <div className="p-4 bg-gray-100 rounded-md">
-            <h3 className="font-medium mb-2">AI Response:</h3>
-            <p className="whitespace-pre-wrap">{response.content}</p>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-md">
+            <h3 className="font-medium mb-2 text-black dark:text-white">AI Response:</h3>
+            <p className="whitespace-pre-wrap text-black dark:text-white">{response.content}</p>
           </div>
           
-          <div className="p-4 bg-gray-100 rounded-md">
-            <h3 className="font-medium mb-2">Extracted Content:</h3>
-            <p className="whitespace-pre-wrap">{response.extractedContent}</p>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-md">
+            <h3 className="font-medium mb-2 text-black dark:text-white">Extracted Content:</h3>
+            <p className="whitespace-pre-wrap text-black dark:text-white">{response.extractedContent}</p>
           </div>
         </div>
       )}
