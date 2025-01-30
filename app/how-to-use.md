@@ -1,6 +1,23 @@
-# BrowserBase AI Tools Documentation
+# Getting Started
 
-This documentation explains how to use BrowserBase's AI-powered tools and endpoints.
+Welcome to BrowserBase AI Tools documentation. This guide will help you understand and integrate our AI-powered tools and endpoints into your applications.
+
+## Quick Start
+
+1. Install the required dependencies
+2. Set up your environment variables
+3. Choose your preferred endpoint
+4. Make your first API call
+
+## Environment Setup
+
+1. Create a `.env.local` file in your project root
+2. Add your API keys:
+   ```
+   BROWSERBASE_API_KEY=your_api_key_here
+   BROWSERBASE_PROJECT_ID=your_project_id_here
+   ```
+3. Start your development server with `npm run dev`
 
 ---
 
