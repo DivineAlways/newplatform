@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { convertToCoreMessages, generateText } from 'ai';
 import { JSDOM } from 'jsdom';
 import { chromium } from 'playwright';
@@ -50,8 +50,10 @@ export async function GET(request: Request) {
     const userMessage = "What is the weather in San Francisco?";
 
     const info = await getPageInfo(userMessage);
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
+    const model = genAI.getGenerativeModel({ model: "gemini-2-0-flash-exp" });
     const response = await generateText({
-      model: google("gemini-2-0-flash-exp"),
+      model: model,
       messages: convertToCoreMessages([
         { role: "system", content: "You are a helpful assistant. Please provide concise answers." },
         { role: "user", content: `Info: ${info}\n\nQuestion: ${userMessage}\n\n 1. Summarize the information. 2. Extract any numerical data. 3. Identify any locations mentioned. 4. Provide a short answer to the question. 5. Suggest 3 follow up questions.` }
