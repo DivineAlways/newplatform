@@ -1,11 +1,12 @@
 import Image from "next/image";
 import browserBaseLogo from "./bb-logo.svg";
 import Link from 'next/link';
+import ChatForm from './components/ChatForm';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 items-center">
         <div className="flex flex-row gap-4 items-center">
         <Image
           className="dark:invert"
@@ -56,6 +57,10 @@ export default function Home() {
           >
             How to Use
           </Link>
+        </div>
+
+        <div className="w-full max-w-4xl mt-8">
+          <ChatForm />
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
