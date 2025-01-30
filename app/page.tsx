@@ -1,7 +1,7 @@
 import Image from "next/image";
 import browserBaseLogo from "./bb-logo.svg";
 import Link from 'next/link';
-import ChatForm from './components/ChatForm';
+import ChatForm from '@/components/ChatForm';
 
 export default function Home() {
   return (
