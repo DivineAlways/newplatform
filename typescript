@@ -220,3 +220,190 @@ export default function EducationForm() {
     />
   );
 }
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function EcommerceForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="ecommerce"
+      title="E-commerce Analysis"
+      description="Analyze e-commerce data and generate insights for online stores."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="analysisType"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="pricing">Pricing Analysis</option>
+            <option value="market">Market Analysis</option>
+            <option value="competitor">Competitor Analysis</option>
+            <option value="trends">Trend Analysis</option>
+          </select>
+        </div>
+      }
+    />
+  );
+}
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function SocialMediaForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="social-media"
+      title="Social Media Content"
+      description="Generate and analyze social media content across platforms."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="platform"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="twitter">Twitter</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+          </select>
+          <select
+            name="contentType"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="post">Post</option>
+            <option value="thread">Thread</option>
+            <option value="campaign">Campaign</option>
+          </select>
+        </div>
+      }
+    />
+  );
+}
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function SoftwareTestingForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="software-testing"
+      title="Software Testing"
+      description="Generate test cases and testing strategies for software applications."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="testType"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="unit">Unit Tests</option>
+            <option value="integration">Integration Tests</option>
+            <option value="e2e">End-to-End Tests</option>
+            <option value="performance">Performance Tests</option>
+          </select>
+          <select
+            name="framework"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="jest">Jest</option>
+            <option value="cypress">Cypress</option>
+            <option value="selenium">Selenium</option>
+            <option value="playwright">Playwright</option>
+          </select>
+        </div>
+      }
+    />
+  );
+}
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function WorkflowAutomationForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="workflow-automation"
+      title="Workflow Automation"
+      description="Design and optimize automated workflows for business processes."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="workflowType"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="approval">Approval Process</option>
+            <option value="onboarding">Onboarding</option>
+            <option value="documentation">Documentation</option>
+            <option value="deployment">Deployment</option>
+          </select>
+        </div>
+      }
+    />
+  );
+}
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function AccessibilityForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="accessibility"
+      title="Accessibility Analysis"
+      description="Analyze and improve web accessibility compliance."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="standard"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="wcag2.1">WCAG 2.1</option>
+            <option value="wcag2.2">WCAG 2.2</option>
+            <option value="section508">Section 508</option>
+          </select>
+          <select
+            name="level"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="A">Level A</option>
+            <option value="AA">Level AA</option>
+            <option value="AAA">Level AAA</option>
+          </select>
+        </div>
+      }
+    />
+  );
+}
+'use client';
+
+import BaseEndpointForm from './BaseEndpointForm';
+
+export default function AIBrowsingForm() {
+  return (
+    <BaseEndpointForm
+      endpoint="ai-browsing"
+      title="AI-Assisted Browsing"
+      description="Intelligent web browsing and research assistance."
+      extraFields={
+        <div className="flex items-center space-x-4">
+          <select
+            name="depth"
+            className="p-2 border rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+          >
+            <option value="basic">Basic</option>
+            <option value="detailed">Detailed</option>
+            <option value="comprehensive">Comprehensive</option>
+          </select>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              name="includeSources"
+              className="rounded"
+            />
+            <span className="text-sm text-black dark:text-white">Include Sources</span>
+          </label>
+        </div>
+      }
+    />
+  );
+}
