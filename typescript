@@ -407,3 +407,67 @@ export default function AIBrowsingForm() {
     />
   );
 }
+'use client';
+
+import { useState } from 'react';
+import ChatForm from './ChatForm';
+import WebScrapeForm from './endpoints/WebScrapeForm';
+import ContentCreationForm from './endpoints/ContentCreationForm';
+import MarketResearchForm from './endpoints/MarketResearchForm';
+import EducationForm from './endpoints/EducationForm';
+import EcommerceForm from './endpoints/EcommerceForm';
+import SocialMediaForm from './endpoints/SocialMediaForm';
+import SoftwareTestingForm from './endpoints/SoftwareTestingForm';
+import WorkflowAutomationForm from './endpoints/WorkflowAutomationForm';
+import AccessibilityForm from './endpoints/AccessibilityForm';
+import AIBrowsingForm from './endpoints/AIBrowsingForm';
+
+const endpoints = [
+  { id: 'chat', label: 'Chat', component: ChatForm },
+  { id: 'web-scrape', label: 'Web Scraping', component: WebScrapeForm },
+  { id: 'content-creation', label: 'Content Creation', component: ContentCreationForm },
+  { id: 'market-research', label: 'Market Research', component: MarketResearchForm },
+  { id: 'education', label: 'Education', component: EducationForm },
+  { id: 'ecommerce', label: 'E-commerce', component: EcommerceForm },
+  { id: 'social-media', label: 'Social Media', component: SocialMediaForm },
+  { id: 'software-testing', label: 'Software Testing', component: SoftwareTestingForm },
+  { id: 'workflow-automation', label: 'Workflow Automation', component: WorkflowAutomationForm },
+  { id: 'accessibility', label: 'Accessibility', component: AccessibilityForm },
+  { id: 'ai-browsing', label: 'AI Browsing', component: AIBrowsingForm }
+];
+
+export default function EndpointLayout() {
+  const [activeEndpoint, setActiveEndpoint] = useState('chat');
+
+  const ActiveComponent = endpoints.find(e => e.id === activeEndpoint)?.component || ChatForm;
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <div className="flex flex-col md:flex-row">
+        {/* Sidebar */}
+        <div className="w-full md:w-64 p-4 bg-gray-100 dark:bg-gray-800">
+          <nav className="space-y-2">
+            {endpoints.map((endpoint) => (
+              <button
+                key={endpoint.id}
+                onClick={() => setActiveEndpoint(endpoint.id)}
+                className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
+                  activeEndpoint === endpoint.id
+                    ? 'bg-blue-500 text-white'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}
+              >
+                {endpoint.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 p-4">
+          <ActiveComponent />
+        </div>
+      </div>
+    </div>
+  );
+}
