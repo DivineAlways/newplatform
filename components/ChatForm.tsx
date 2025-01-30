@@ -1,6 +1,6 @@
 'use client';
 
-import BaseEndpointForm from './endpoints/BaseEndpointForm';
+import BaseEndpointForm from '@/components/endpoints/BaseEndpointForm';
 
 export default function ChatForm() {
   return (
