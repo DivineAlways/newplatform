@@ -1,93 +1,72 @@
-# How to Use the Web Scraper Tool
+# BrowserBase AI Tools Documentation
 
-This page explains how to use the current version of the web scraping tool.
+This documentation explains how to use BrowserBase's AI-powered tools and endpoints.
 
-## Understanding the Components
+## Core Components
 
-The tool consists of the following key components:
+### Base Components
 
-- **`app/lib/browserbase.ts`**: This file contains the core logic for interacting with Browserbase and extracting information from web pages.
-  - `createSession()`: Creates a new Browserbase session.
-  - `getPageInfo(message, summarize)`: Navigates to a Google search results page based on the `message`, extracts the main content from the first result, and optionally summarizes it if `summarize` is true.
-  - `summarizeText(text)`: Uses an AI model to summarize the given text.
-- **`app/api/chat/route.ts`**: This is your API endpoint that handles incoming requests.
-  - It accepts a POST request with a JSON body containing:
-    - `userMessage`: The search query or question.
-    - `outputFormat`: The desired output format (`text`, `json`, or `markdown`).
-    - `summarize`: A boolean indicating whether to summarize the extracted content.
-  - It uses `getPageInfo` to fetch the content.
-  - It formats the extracted content based on `outputFormat`.
-  - It uses an AI model to generate a response based on the extracted content and the user's message.
-  - It returns a JSON response containing:
-    - `content`: The AI-generated response.
-    - `extractedContent`: The extracted content in the specified format.
-- **`app/page.tsx`**: This is your home page, which currently just has links to the docs and history page.
-- **`app/history/page.tsx`**: This is a placeholder for the history page.
+- **BaseEndpointForm**: A reusable React component that provides a consistent interface for all endpoints
+  - Props:
+    - `endpoint`: The API endpoint to use
+    - `title`: Form title
+    - `description`: Form description
+    - `extraFields`: Optional additional form fields
 
-## How to Use the Tool
+### Backend Components
 
-Since you don't have a UI yet, you'll need to use a tool like `curl`, Postman, or a similar API testing tool to send POST requests to your API endpoint.
+- **`app/lib/browserbase.ts`**: Core logic for Browserbase interactions
+  - `createSession()`: Creates new Browserbase sessions
+  - `getPageInfo()`: Handles web content extraction
+  - `summarizeText()`: AI-powered text summarization
 
-### Example using `curl`:
+### API Endpoints
 
-1.  **Basic Text Output:**
-    ```bash
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -d '{
-        "userMessage": "What is the capital of France?",
-        "outputFormat": "text",
-        "summarize": false
-      }' \
-      http://localhost:3000/api/chat
-    ```
-    Replace `http://localhost:3000` with your actual development server address. This will return a JSON response with the AI's answer and the extracted text.
+Each endpoint is designed for specific use cases and accepts POST requests with:
+- Required fields:
+  - `userMessage`: Your query or request
+  - `outputFormat`: Response format (`text`, `json`, or `markdown`)
+- Optional fields:
+  - `summarize`: Whether to summarize content (boolean)
+  - Additional fields specific to each endpoint
 
-2.  **JSON Output:**
-    ```bash
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -d '{
-        "userMessage": "What is the capital of France?",
-        "outputFormat": "json",
-        "summarize": false
-      }' \
-      http://localhost:3000/api/chat
-    ```
-    This will return a JSON response with the AI's answer and the extracted text as a JSON object.
+## Available Endpoints
 
-3.  **Markdown Output:**
-    ```bash
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -d '{
-        "userMessage": "What is the capital of France?",
-        "outputFormat": "markdown",
-        "summarize": false
-      }' \
-      http://localhost:3000/api/chat
-    ```
-    This will return a JSON response with the AI's answer and the extracted text in markdown format.
+BrowserBase offers specialized endpoints for different use cases. Each endpoint is accessible through our React components or direct API calls.
 
-4.  **Summarized Text Output:**
-    ```bash
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -d '{
-        "userMessage": "What is the capital of France?",
-        "outputFormat": "text",
-        "summarize": true
-      }' \
-      http://localhost:3000/api/chat
-    ```
-    This will return a JSON response with the AI's answer and the summarized extracted text.
+### Using the Web Interface
 
-**Explanation:**
+1. Navigate to the desired tool page
+2. Fill in the form fields:
+   - Enter your query/request
+   - Select output format
+   - Add any endpoint-specific options
+3. Click Submit to process your request
 
-- `-X POST`: Specifies that you are making a POST request.
-- `-H "Content-Type: application/json"`: Sets the content type of the request to JSON.
-- `-d '{...}'`: Provides the JSON data for the request body.
-- `http://localhost:3000/api/chat`: The URL of your API endpoint.
+### API Access
+
+All endpoints are accessible via API calls using tools like `curl`, Postman, or any HTTP client. Each endpoint follows this basic structure:
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userMessage": "Your request here",
+    "outputFormat": "text|json|markdown",
+    "summarize": true|false,
+    ...endpoint-specific-fields
+  }' \
+  http://localhost:3000/api/{endpoint-name}
+```
+
+### Common Parameters
+
+- `userMessage`: Your query or request
+- `outputFormat`: Desired response format
+  - `text`: Plain text response
+  - `json`: Structured JSON data
+  - `markdown`: Formatted markdown
+- `summarize`: Optional boolean to request summarized content
 
 ## Important Notes:
 
