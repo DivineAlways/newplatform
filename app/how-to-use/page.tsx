@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import DocsPage from '@/app/how-to-use/DocsPage'
+import DocsPage from './DocsPage'
 
 export const metadata: Metadata = {
   title: 'Documentation - BrowserBase',
